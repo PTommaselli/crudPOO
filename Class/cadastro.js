@@ -11,6 +11,8 @@ class Cadastro {
     this.status8 = document.querySelector('#status8')
     this.status9 = document.querySelector('#status9')
     this.verify = false
+    this.cadastroDisplay = document.querySelector('.Cadastro')
+    this.loginDisplay = document.querySelector('.Login')
   }
 
   cadastrar(){
@@ -60,11 +62,12 @@ class Cadastro {
       ){
       this.verify = false
       if(this.verify == false){
-        this.status5.innerHTML = 'Cadastrado com sucesso'
+        this.status5.innerHTML = ''
         this.status6.innerHTML = ''
         this.status7.innerHTML = ''
         this.status8.innerHTML = ''
-        this.status9.innerHTML = ''
+        this.status9.innerHTML = 'Cadastrado com sucesso'
+        this.status9.style.color = null
         
         const user = {
           nome: this.nome.value,
@@ -74,9 +77,14 @@ class Cadastro {
           confirmSenha: this.confirmSenha.value,
         }
         localStorage.setItem(this.email.value, JSON.stringify(user));
+        setTimeout(() => {
+          this.cadastroDisplay.style.display = 'none'
+          this.loginDisplay.style.display = 'flex'
+        }, 1000);
       }
     }else{
-      this.status9.innerHTML = 'As senhas não conferem'
+        this.status9.innerHTML = 'As senhas não conferem'
+        this.status9.style.color = '#ef5350'
     }
     
 

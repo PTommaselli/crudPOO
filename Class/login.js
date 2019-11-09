@@ -29,6 +29,7 @@ class Login {
 
     if(dataObject == null ){
       this.statusLogin.innerHTML = "E-mail incorreto"
+      this.statusLogin.style.color = '#ef5350'
     }else{
         this.statusLogin.innerHTML = ""
         this.status.innerHTML = ""
@@ -40,6 +41,7 @@ class Login {
           this.statusLogin.innerHTML = "Senha Incorreta"
         }else{
           this.statusLogin.innerHTML = "Logado com Sucesso"
+          this.statusLogin.style.color = null
         }
     }
 

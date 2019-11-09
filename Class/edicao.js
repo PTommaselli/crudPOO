@@ -6,6 +6,7 @@ class Edicao {
     this.confirmSenha = document.querySelector('#confirmSenhaEdit')
     this.status4 = document.querySelector('#status4')
     this.busca = document.querySelector('#busca')
+    this.edcaoDisplay = document.querySelector('.InputEdicao')
   }
 
   editar(){
@@ -18,5 +19,8 @@ class Edicao {
 
     localStorage.setItem(this.busca.value, JSON.stringify(user));
     this.status4.innerHTML = "Edição concluida com sucesso"
+    setTimeout(() => {
+      this.edcaoDisplay.style.display = 'none'
+    }, 1000);
   }
 }

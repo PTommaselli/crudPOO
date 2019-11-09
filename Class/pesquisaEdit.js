@@ -16,8 +16,10 @@ class PesquisaUser {
     if(this.busca.value == ''){
       this.status.innerHTML = ""
       this.status.innerHTML = "Insira o email para buscar o usuário"
+      this.status.style.color = '#ef5350'
     }else if(dataObject == null){
-      this.status.innerHTML = "E-mail incorreto"      
+      this.status.innerHTML = "E-mail incorreto"
+      this.status.style.color = '#ef5350'   
     }else {
         this.status.innerHTML = ""
         this.buscaEdit.style.display = null
@@ -25,7 +27,7 @@ class PesquisaUser {
         this.dataNasc.value = dataObject.dataNasc
         this.senha.value = dataObject.senha
         this.confirmSenha.value = dataObject.confirmSenha
-
+        
       }
   }
 }

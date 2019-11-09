@@ -4,44 +4,72 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <link rel="stylesheet" type="text/css" href="index.css">
   <title>Site</title>
 </head>
 <body>
 
-  <h3>Cadastro</h3>
-      <input id="nome" name="nome" type="text" placeholder="Nome"/>
-      <input id="dataNasc" type="date" placeholder="Ano de Nascimento"/>
-      <input id="email" type="email" placeholder="E-mail"/>
-      <input id="senha" type="text" placeholder="Senha"/>
-      <input id="confirmSenha" type="text" placeholder="Confirmar Senha"/>
-    <button id="cadastrar" onclick="Cadastros.cadastrar()">CADASTRAR</button>
-    <div id="status5"></div>
-    <div id="status6"></div>
-    <div id="status7"></div>
-    <div id="status8"></div>
-    <div id="status9"></div>
-      
+    <section class="Busca">
+        <h3>Busca</h3>
+        <div class="form">
+            <input type="text" id="busca" placeholder="Insira o E-mail do Usuário...">
+             <div class="status" id=status3></div>
+           <button id="pesquisaBtn" onclick="Pesquisa.pesquisar()">Pesquisar</button>
+          </div>
+          <div class="InputEdicao" style="display: none;" id="buscaEdit">
+              <input id="nomeEdit" name="nome" type="text" placeholder="Nome à Editar"/>
+              <input id="dataNascEdit" type="date" placeholder="Data à Editar"/>
+              <input id="senhaEdit" type="text" placeholder="Senha à Editar"/>
+              <input id="confirmSenhaEdit" type="text" placeholder="Confirmar Senha"/>
+              <button id="cadastrarEdit" onclick="Editar.editar()">Salvar Edição</button>
+              <div id="status4"></div>
+          </div>
+      </section>
 
-  <h3>Login</h3>
-      <input id="emailLog" type="email" placeholder="E-mail"/>
-      <input id="senhaLog" type="text" placeholder="Senha"/>
-    <button id="loigin" onclick="Logs.login()">Login</button>
-      <div id="statusLogin"></div>
-      <div id="status"></div>
-      <div id="status2"></div>
-
-  <h3>Busca</h3>
-      <input type="text" id="busca" placeholder="Insira o E-mail do Usuário...">
-    <button id="pesquisaBtn" onclick="Pesquisa.pesquisar()">Pesquisar</button>  <br><br>
-      <div style="display: none;" id="buscaEdit">
-          <input id="nomeEdit" name="nome" type="text" placeholder="Nome à Editar"/>
-          <input id="dataNascEdit" type="date" placeholder="Data à Editar"/>
-          <input id="senhaEdit" type="text" placeholder="Senha à Editar"/>
-          <input id="confirmSenhaEdit" type="text" placeholder="Confirmar Senha"/>
-          <button id="cadastrarEdit" onclick="Editar.editar()">Salvar Edição</button>
-          <div id="status4"></div>
+  <section class="Cadastro">
+    <h3>Cadastro</h3>
+    <div class="form">
+        <input id="nome" name="nome" type="text" placeholder="Nome"/>
+          <div class="status" id="status5"></div>
+        <input id="dataNasc" type="date" placeholder="Ano de Nascimento"/>
+          <div class="status" id="status6"></div>
+        <input id="email" type="email" placeholder="E-mail"/>
+          <div class="status" id="status7"></div>
+        <input id="senha" type="text" placeholder="Senha"/>
+          <div class="status" id="status8"></div>
+        <input id="confirmSenha" type="text" placeholder="Confirmar Senha"/>
+        <button id="cadastrar" onclick="Cadastros.cadastrar()">CADASTRAR</button>
+          <div id="status9"></div>
+        <button 
+          id="irLogin"
+          onclick="
+              document.querySelector('.Cadastro').style.display = 'none'
+              document.querySelector('.Login').style.display = 'flex'
+          "
+         >Voltar ao Login</button>
+        </div>
       </div>
-      <div id=status3></div>
+  </section>
+      
+  <section class="Login">
+    <h3>Login</h3>
+    <div class="form">
+      <input id="emailLog" type="email" placeholder="E-mail"/>
+      <div class="status" id="status"></div>
+      <input id="senhaLog" type="text" placeholder="Senha"/>
+      <div class="status" id="status2"></div>
+      <div id="statusLogin"></div>
+     <button id="loigin" onclick="Logs.login()">Login</button>
+     <button 
+      id="irCadastro" 
+      onclick="
+          document.querySelector('.Cadastro').style.display = 'flex'
+          document.querySelector('.Login').style.display = 'none'
+      "
+     >Quero Cadastrar-me</button>
+    </div>
+  </section>
+
 
   <script src="./Class/edicao.js"></script>
   <script src="./Class/pesquisaEdit.js"></script>
